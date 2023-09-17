@@ -26,9 +26,7 @@ app.post('/:topic', (req,res) => {
   const topic = req.params.topic
 
   subscribe(topic, async (msg) => {
-    console.log('sending', msg)
     const response = await axios.get(`http://localhost:8000/${topic}/${msg}`)
-    console.log('response', response.data)
   })
 
   res.send('ok\n')
